@@ -18,11 +18,11 @@
   <thead>
     <tr>
       <th class="<%='hilite bg-warning' if @sort_by=="title" %>">
-        <%= link_to "Movie Title", movies_path({"sort_by": :title}) %>
+        <%= link_to "Movie Title", movies_path({"sort_by": :title, "ratings": Hash[@ratings_to_show.map {|rating| [rating,'1']}]}) %>
       </th>
       <th>Rating</th>
       <th class="<%='hilite bg-warning' if @sort_by=="release_date" %>">
-        <%= link_to "Release Date", movies_path({"sort_by": :release_date}) %>
+        <%= link_to "Release Date", movies_path({"sort_by": :release_date, "ratings": Hash[@ratings_to_show.map {|rating| [rating,'1']}]}) %>
       </th>
       <th>More Info</th>
     </tr>
