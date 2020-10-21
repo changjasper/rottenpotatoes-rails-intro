@@ -10,7 +10,8 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.all_ratings
     ratings_list = params[:ratings].nil? ? nil : params[:ratings].keys
     @ratings_to_show = ratings_list.nil? ? Movie.all_ratings : ratings_list
-    @movies = ratings_list.nil? ? Movie.all : Movie.with_ratings(ratings_list)
+    @sort_by = params[:sort_by]
+    @movies = ratings_list.nil? ? Movie.with_ratings(nil, params[:sort_by]) : Movie.with_ratings(ratings_list, params[:sort_by])
   end
 
   def new
